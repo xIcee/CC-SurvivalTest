@@ -3,6 +3,7 @@
 #include "Core.h"
 
 void CCST_Icons_Draw2D(float delta);
+void CCST_Icons_ContextLost(void);
 void CCST_Icons_Free(void);
 
 #endif

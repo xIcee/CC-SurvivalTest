@@ -1892,3 +1892,12 @@ void CCST_Inv_Free(void) {
 		CCST_Inv_CloseInternal();
 	ccst_inv_open = false;
 }
+
+void CCST_Inv_ContextLost(void) {
+	Gfx_DeleteDynamicVb(&ccst_inv_vb);
+	ccst_inv_vb = 0;
+	Gfx_DeleteDynamicVb(&ccst_flatVb);
+	ccst_flatVb = 0;
+	Gfx_DeleteDynamicVb(&ccst_labelQuadVb);
+	ccst_labelQuadVb = 0;
+}

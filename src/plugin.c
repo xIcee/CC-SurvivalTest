@@ -34,6 +34,7 @@
 static void CCST_OnConnected(void* obj);
 static void CCST_OnMapLoaded(void* obj);
 static void CCST_OnHacksChanged(void* obj);
+static void CCST_OnContextLost(void* obj);
 
 // identification suffix for servers
 static void CCST_AppendSoftwareNameSuffix(void) {
@@ -173,16 +174,25 @@ static void CCST_OnHacksChanged(void* obj) {
 	CCST_Health_EnforceSurvivalHacks();
 }
 
+static void CCST_OnContextLost(void* obj) {
+	(void)obj;
+	CCST_Icons_ContextLost();
+	CCST_Inv_ContextLost();
+	CCST_Deathscreen_ContextLost();
+}
+
 static void CCST_RegisterEvents(void) {
 	Event_Register_(&NetEvents.Connected, NULL, CCST_OnConnected);
 	Event_Register_(&WorldEvents.MapLoaded, NULL, CCST_OnMapLoaded);
 	Event_Register_(&UserEvents.HacksStateChanged, NULL, CCST_OnHacksChanged);
+	Event_Register_(&GfxEvents.ContextLost, NULL, CCST_OnContextLost);
 }
 
 static void CCST_UnregisterEvents(void) {
 	Event_Unregister_(&NetEvents.Connected, NULL, CCST_OnConnected);
 	Event_Unregister_(&WorldEvents.MapLoaded, NULL, CCST_OnMapLoaded);
 	Event_Unregister_(&UserEvents.HacksStateChanged, NULL, CCST_OnHacksChanged);
+	Event_Unregister_(&GfxEvents.ContextLost, NULL, CCST_OnContextLost);
 }
 
 static void CCST_PluginInit(void) {

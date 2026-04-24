@@ -147,6 +147,10 @@ void CCST_Icons_Free(void) {
 	CCST_Font_FreeCached(&ccst_score_font, &ccst_score_font_pt);
 }
 
+void CCST_Icons_ContextLost(void) {
+	Gfx_DeleteDynamicVb(&ccst_iconVb);
+}
+
 // draw hearts and bubbles
 void CCST_Icons_Draw2D(float delta) {
 	struct VertexTextured* verts;

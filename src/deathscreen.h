@@ -3,6 +3,7 @@
 #include "Core.h"
 
 void CCST_Deathscreen_Init(void);
+void CCST_Deathscreen_ContextLost(void);
 void CCST_Deathscreen_Free(void);
 cc_bool CCST_Deathscreen_IsActive(void);
 

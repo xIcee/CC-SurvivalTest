@@ -265,6 +265,13 @@ void CCST_Deathscreen_Free(void) {
 	ccst_death_active = false;
 }
 
+void CCST_Deathscreen_ContextLost(void) {
+	Gfx_DeleteDynamicVb(&ccst_death_flatVb);
+	ccst_death_flatVb = 0;
+	Gfx_DeleteDynamicVb(&ccst_death_texVb);
+	ccst_death_texVb = 0;
+}
+
 cc_bool CCST_Deathscreen_IsActive(void) {
 	return ccst_death_active;
 }

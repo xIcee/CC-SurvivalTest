@@ -11,6 +11,7 @@ cc_bool CCST_Inv_IsOpen(void);
 void CCST_Inv_SetOpen(cc_bool open);
 void CCST_Inv_Draw2D(float delta);
 void CCST_Inv_Init(void);
+void CCST_Inv_ContextLost(void);
 void CCST_Inv_Free(void);
 
 /* Survival layer: empty all hotbar rows and plugin storage when a world loads.
